@@ -61,7 +61,7 @@ export class EmailService {
     }
 
     async sendEmail(emailAndImage: FormData): Promise<AxiosResponse> {
-        return axios
+        return axios // SMTP. postfix. mx dns
             .post(this.url, emailAndImage, {
                 headers: {
                     'x-team-key': this.X_TEAM_KEY,

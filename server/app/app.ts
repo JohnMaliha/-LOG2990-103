@@ -6,7 +6,7 @@ import * as cors from 'cors';
 import * as express from 'express';
 import { inject, injectable } from 'inversify';
 import * as logger from 'morgan';
-import * as multer from 'multer';
+import * as multer from 'multer'; // accept des donnees completes
 import { TYPES } from './types';
 @injectable()
 export class Application {

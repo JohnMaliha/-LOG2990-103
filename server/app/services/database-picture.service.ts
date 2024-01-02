@@ -74,20 +74,21 @@ export class DatabasePictureService {
                 return pictures;
             })
             .catch((error: Error) => {
-                throw error;
+                throw error; // service retourne lerreur elle meme pas le http error (404 etc).
             });
     }
     async getAllLabels(): Promise<Label[]> {
         try {
             const listLabels: Label[] = [];
             const collectionPictures: CanvasInformation[] = await this.collection
-                .find({ 'labels.label': { $exists: true } })
+                .find({ 'labels.label': { $exists: true } }) //
                 .project({ 'labels.label': 1 })
                 .toArray()
                 .then((pictures: CanvasInformation[]) => {
                     return pictures;
                 });
             collectionPictures.forEach((element) => {
+                // comme un for(const element of collectionPicture)
                 element.labels.forEach((label) => {
                     if (this.isLabelNotInTheList(listLabels, label)) listLabels.push(label);
                 });

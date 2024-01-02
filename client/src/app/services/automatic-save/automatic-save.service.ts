@@ -76,7 +76,7 @@ export class AutomaticSaveService {
         this.canvasResize.canvasSize.y = heightNb;
         const image = new Image();
         image.src = this.canvas;
-        // const actionLoadImg = new LoadAction(image, heightNb, widthNb, this.drawingService, this.canvasResize);
+        //  const actionLoadImg = new LoadAction(image, heightNb, widthNb, this.drawingService, this.canvasResize);
         this.undoRedoService.clearUndo();
         this.undoRedoService.clearRedo();
         // this.undoRedoService.loadImage(actionLoadImg);
